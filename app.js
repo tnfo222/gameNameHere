@@ -10,6 +10,7 @@ const mowersLeft = document.querySelectorAll(".mower-left");
 const mowersRight = document.querySelectorAll(".mower-right");
 const branchesRight = document.querySelectorAll(".branch-right");
 const branchesLeft = document.querySelectorAll(".branch-left");
+
 //show the grid array
 console.log(grid);
 
