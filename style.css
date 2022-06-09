@@ -1,0 +1,36 @@
+.containerGame {
+    border: 1px solid black;
+    height: 720px;
+    width: 720px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.containerGame div {
+    height: 80px;
+    width: 80px;
+}
+
+.goalPoint {
+    background-color:#D81B60;
+}
+
+.m2, .m3 {
+    background-color:#004D40;
+}
+
+.m1 {
+    background-color: orange;
+}
+
+.b2, .b3 {
+    background-color:burlywood;
+}    
+
+.b1, .b4, .b5 {
+    background-color:#00EEFF;
+}
+
+.playableCharacter {
+    background-color:black;
+}
