@@ -14,7 +14,7 @@ const branchesLeft = document.querySelectorAll(".branch-left");
 //show the grid array
 console.log(grid);
 
-//set the starting square by selecting a square in the array
+//set the starting position of the Playable Character by selecting a square in the array
 let currentIndex = 76;
 
 //move the Character with WASD and create borders
@@ -61,8 +61,6 @@ timer3 = setInterval(auto3, 650);
 function auto1(){
     mowersLeft.forEach(w => moveMowerLeft(w));
     branchesRight.forEach(y => moveBranchesRight(y));
-    youLose();
-    youWin();
 }
 auto1();
 
@@ -70,13 +68,12 @@ function auto2(){
     mowersRight.forEach(x => moveMowerRight(x));
     youLose();
     youWin(); 
+    float();
 }
 auto2();
 
 function auto3(){
     branchesLeft.forEach(z => moveBranchesLeft(z));
-    youLose();
-    youWin();
 }
 auto3();
 
@@ -168,6 +165,16 @@ function moveMowerRight(x) {
     }
 }
 
+function float() {
+    if(grid[currentIndex].classList.contains('playableCharacter') && grid[currentIndex].classList.contains('b2')) {
+        if(currentIndex % gridWidth < gridWidth - 1){
+            currentIndex += 1;
+            grid[currentIndex].classList.add('playableCharacter');
+            grid[currentIndex-1].classList.remove('playableCharacter');
+        }
+    }
+}
+
 //moves that are bad for your life
 function youLose() {
     if (grid[currentIndex].classList.contains('m1')) {
@@ -178,6 +185,14 @@ function youLose() {
         document.removeEventListener('keydown',movePlayableCharacter);
         grid[currentIndex].classList.remove('playableCharacter');
         
+    }
+    else if(grid[currentIndex].classList.contains('m1') && grid[currentIndex].classList.contains('playableCharacter')){
+        console.log('You were mowed over :(');
+        clearInterval(timer1);
+        clearInterval(timer2);
+        clearInterval(timer3);
+        document.removeEventListener('keydown',movePlayableCharacter);
+        grid[currentIndex].classList.remove('playableCharacter');
     }
     else if(grid[currentIndex].classList.contains('b1') || grid[currentIndex].classList.contains('b4') || grid[currentIndex].classList.contains('b4')) {
         console.log('You cannot swim here! O_o');
