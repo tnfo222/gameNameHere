@@ -165,6 +165,7 @@ function moveMowerRight(x) {
     }
 }
 
+//character floats on moving log
 function float() {
     if(grid[currentIndex].classList.contains('playableCharacter') && grid[currentIndex].classList.contains('b2')) {
         if(currentIndex % gridWidth < gridWidth - 1){
