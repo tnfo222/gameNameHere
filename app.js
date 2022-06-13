@@ -174,6 +174,9 @@ function float() {
             grid[currentIndex-1].classList.remove('playableCharacter');
         }
     }
+    else if(grid[currentIndex].classList.contains('playableCharacter') && grid[currentIndex-1].classList.contains('b1')) {
+        console.log('You are here')
+    }
 }
 
 //moves that are bad for your life
