@@ -1,3 +1,9 @@
+body{
+    justify-content: center;
+    background: lightgoldenrodyellow;
+    display:flex;
+}
+
 .containerGame {
     border: 1px solid black;
     height: 540px;
@@ -11,6 +17,11 @@
     width: 60px;
 }
 
+div.containerGame {
+    background-image:url(./assets/cutgrass_texture_darker.png);
+    background-size: 60px 60px;
+}
+
 .goalPoint {
     background-color:#D81B60;
 }
@@ -18,12 +29,18 @@
 .m2, .m3 {
     background-image:url(./assets/cutgrass_texture.png);
     background-size:60px 60px;
+    
 }
 
-.m1 {
-    background-color: orange;
+.mower-right.m1 {
+    background-image:url(./assets/mower.png);
+    background-size:60px 60px;
 }
 
+.mower-left.m1 {
+    background-image:url(./assets/mowerLeft.png);
+    background-size:60px 60px;
+}
 .b2, .l2{
     background-image:url(./assets/logLeft_texture.png);
     background-size:70px 60px;
@@ -39,15 +56,11 @@
 .b1, .b4, .b5, .l1, .l4, .l5 {
     background-image:url(./assets/water_texture.png);
     background-size:60px 60px;
+    background-color:transparent;
 }
 
 .b5, .l4 {
     transform: rotate(180deg);
-}
-
-.containerGame div:empty {
-    background-image:url(./assets/cutgrass_texture_darker.png);
-    background-size: 60px 60px;
 }
 
 .playableCharacter {
