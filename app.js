@@ -56,6 +56,7 @@ document.addEventListener('keydown', movePlayableCharacter);
 timer1 = setInterval(auto1, 1000);
 timer2 = setInterval(auto2, 500);
 timer3 = setInterval(auto3, 650);
+timer4 = setInterval(checkCharacter, 10);
 
 //auto movement
 function auto1(){
@@ -66,9 +67,6 @@ auto1();
 
 function auto2(){
     mowersRight.forEach(x => moveMowerRight(x));
-    youLose();
-    youWin(); 
-    float();
 }
 auto2();
 
@@ -76,6 +74,13 @@ function auto3(){
     branchesLeft.forEach(z => moveBranchesLeft(z));
 }
 auto3();
+
+function checkCharacter(){
+    youLose();
+    youWin();
+    floatRight();
+    floatLeft();
+}
 
 //moving first obstacle
 function moveMowerLeft(w) {
@@ -124,25 +129,25 @@ function moveBranchesRight(y) {
 //moving third obstacle
 function moveBranchesLeft(z) {
     switch(true) {
-        case z.classList.contains('b1'):
-            z.classList.remove('b1');
-            z.classList.add('b2');
+        case z.classList.contains('l1'):
+            z.classList.remove('l1');
+            z.classList.add('l2');
             break;
-        case z.classList.contains('b2'):
-            z.classList.remove('b2');
-            z.classList.add('b3');
+        case z.classList.contains('l2'):
+            z.classList.remove('l2');
+            z.classList.add('l3');
             break;
-        case z.classList.contains('b3'):
-            z.classList.remove('b3');
-            z.classList.add('b4');
+        case z.classList.contains('l3'):
+            z.classList.remove('l3');
+            z.classList.add('l4');
             break;
-        case z.classList.contains('b4'):
-            z.classList.remove('b4');
-            z.classList.add('b5');
+        case z.classList.contains('l4'):
+            z.classList.remove('l4');
+            z.classList.add('l5');
             break;
-        case z.classList.contains('b5'):
-            z.classList.remove('b5');
-            z.classList.add('b1');
+        case z.classList.contains('l5'):
+            z.classList.remove('l5');
+            z.classList.add('l1');
             break;
     }
 }
@@ -166,16 +171,23 @@ function moveMowerRight(x) {
 }
 
 //character floats on moving log
-function float() {
+function floatRight() {
     if(grid[currentIndex].classList.contains('playableCharacter') && grid[currentIndex].classList.contains('b2')) {
         if(currentIndex % gridWidth < gridWidth - 1){
             currentIndex += 1;
             grid[currentIndex].classList.add('playableCharacter');
             grid[currentIndex-1].classList.remove('playableCharacter');
-        }
+        }    
     }
-    else if(grid[currentIndex].classList.contains('playableCharacter') && grid[currentIndex-1].classList.contains('b1')) {
-        console.log('You are here')
+}
+
+function floatLeft(){
+    if(grid[currentIndex].classList.contains('playableCharacter') && grid[currentIndex].classList.contains('l3')){
+        if(currentIndex % gridWidth !== 0){
+            currentIndex -= 1;
+            grid[currentIndex].classList.add('playableCharacter');
+            grid[currentIndex+1].classList.remove('playableCharacter');
+        }
     }
 }
 
@@ -186,6 +198,7 @@ function youLose() {
         clearInterval(timer1);
         clearInterval(timer2);
         clearInterval(timer3);
+        clearInterval(timer4);
         document.removeEventListener('keydown',movePlayableCharacter);
         grid[currentIndex].classList.remove('playableCharacter');
         
@@ -195,6 +208,7 @@ function youLose() {
         clearInterval(timer1);
         clearInterval(timer2);
         clearInterval(timer3);
+        clearInterval(timer4);
         document.removeEventListener('keydown',movePlayableCharacter);
         grid[currentIndex].classList.remove('playableCharacter');
     }
@@ -203,6 +217,7 @@ function youLose() {
         clearInterval(timer1);
         clearInterval(timer2);
         clearInterval(timer3);
+        clearInterval(timer4);
         document.removeEventListener('keydown',movePlayableCharacter);
         grid[currentIndex].classList.remove('playableCharacter');
     }

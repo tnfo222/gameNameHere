@@ -16,21 +16,42 @@
 }
 
 .m2, .m3 {
-    background-color:#004D40;
+    background-image:url(./assets/cutgrass_texture.png);
+    background-size:60px 60px;
 }
 
 .m1 {
     background-color: orange;
 }
 
-.b2, .b3 {
-    background-color:burlywood;
+.b2, .l2{
+    background-image:url(./assets/logLeft_texture.png);
+    background-size:70px 60px;
 }    
 
-.b1, .b4, .b5 {
-    background-color:#00EEFF;
+.b3, .l3 {
+    background-image:url(./assets/water_texture.png);
+    background-image:url(./assets/logMid_texture.png);
+    background-image:url(./assets/logRight_texture.png);
+    background-size:62px 61px;
+}
+
+.b1, .b4, .b5, .l1, .l4, .l5 {
+    background-image:url(./assets/water_texture.png);
+    background-size:60px 60px;
+}
+
+.b5, .l4 {
+    transform: rotate(180deg);
+}
+
+.containerGame div:empty {
+    background-image:url(./assets/cutgrass_texture_darker.png);
+    background-size: 60px 60px;
 }
 
 .playableCharacter {
-    background-color:black;
+    background-image:url(./assets/frog_resting.png);
+    background-size:60px 60px;
+    transform: rotate(180deg);
 }
