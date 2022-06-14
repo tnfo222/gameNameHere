@@ -1,20 +1,36 @@
 body{
-    justify-content: center;
     background: lightgoldenrodyellow;
-    display:flex;
+}
+
+body header{
+    padding:10px 0px 20px 0px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .containerGame {
-    border: 1px solid black;
-    height: 540px;
-    width: 540px;
+    border: 10px outset skyblue;
+    height: 720px;
+    width: 720px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .containerGame div {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
 }
 
 div.containerGame {
@@ -28,34 +44,34 @@ div.containerGame {
 
 .m2, .m3 {
     background-image:url(./assets/cutgrass_texture.png);
-    background-size:60px 60px;
+    background-size:80px 80px;
     
 }
 
 .mower-right.m1 {
     background-image:url(./assets/mower.png);
-    background-size:60px 60px;
+    background-size:80px 80px;
 }
 
 .mower-left.m1 {
     background-image:url(./assets/mowerLeft.png);
-    background-size:60px 60px;
+    background-size:80px 80px;
 }
 .b2, .l2{
     background-image:url(./assets/logLeft_texture.png);
-    background-size:70px 60px;
+    background-size:90px 80px;
 }    
 
 .b3, .l3 {
     background-image:url(./assets/water_texture.png);
     background-image:url(./assets/logMid_texture.png);
     background-image:url(./assets/logRight_texture.png);
-    background-size:62px 61px;
+    background-size:82px 81px;
 }
 
 .b1, .b4, .b5, .l1, .l4, .l5 {
     background-image:url(./assets/water_texture.png);
-    background-size:60px 60px;
+    background-size:80px 80px;
     background-color:transparent;
 }
 
@@ -65,6 +81,6 @@ div.containerGame {
 
 .playableCharacter {
     background-image:url(./assets/frog_resting.png);
-    background-size:60px 60px;
+    background-size:80px 80px;
     transform: rotate(180deg);
 }
