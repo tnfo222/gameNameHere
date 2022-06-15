@@ -28,6 +28,14 @@ body section {
     justify-content: center;
 }
 
+.points-earned {
+    position: relative;
+    width: 10%;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+}
+
 .containerGame div {
     height: 80px;
     width: 80px;
@@ -39,7 +47,13 @@ div.containerGame {
 }
 
 .goalPoint {
-    background-color:#D81B60;
+    background-image:url(./assets/winningLily_texture.png);
+    background-size:80px 80px;
+}
+
+.bushLily {
+    background-image:url(./assets/bush_texture.png);
+    background-size:80px 80px;
 }
 
 .m2, .m3 {

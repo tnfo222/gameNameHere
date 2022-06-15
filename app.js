@@ -1,3 +1,6 @@
+var lives = 3;
+var pointsWon = 0;
+
 //select every div square in the grid
 const grid = document.querySelectorAll(".containerGame div");
 const gridWidth = 9;
@@ -195,16 +198,17 @@ function floatLeft(){
 function youLose() {
     if (grid[currentIndex].classList.contains('m1')) {
         console.log('You were mowed over :(');
+        lives--;
         clearInterval(timer1);
         clearInterval(timer2);
         clearInterval(timer3);
         clearInterval(timer4);
         document.removeEventListener('keydown',movePlayableCharacter);
         grid[currentIndex].classList.remove('playableCharacter');
-        
     }
     else if(grid[currentIndex].classList.contains('m1') && grid[currentIndex].classList.contains('playableCharacter')){
         console.log('You were mowed over :(');
+        lives--;
         clearInterval(timer1);
         clearInterval(timer2);
         clearInterval(timer3);
@@ -214,6 +218,7 @@ function youLose() {
     }
     else if(grid[currentIndex].classList.contains('b1') || grid[currentIndex].classList.contains('b4') || grid[currentIndex].classList.contains('b4')) {
         console.log('You cannot swim here! O_o');
+        lives--;
         clearInterval(timer1);
         clearInterval(timer2);
         clearInterval(timer3);
@@ -221,6 +226,12 @@ function youLose() {
         document.removeEventListener('keydown',movePlayableCharacter);
         grid[currentIndex].classList.remove('playableCharacter');
     }
+}
+
+//Keeping Track of Lives
+function updateLife(displayLife){
+    let lives = document.querySelector('.lives-left');
+    lives.innerHTML = displayLife;
 }
 
 //winning the game
@@ -231,5 +242,10 @@ function youWin() {
         clearInterval(timer2);
         clearInterval(timer3);
         document.removeEventListener('keydown',movePlayableCharacter);
+        pointsWon++;
     }
 }
+
+//Consequences of Winning and Losing
+//if you win, game restarts (or goes to next level) with remaining lives left (loop play())
+//if you lose game restarts with 3 lives
